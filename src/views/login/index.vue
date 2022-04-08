@@ -11,10 +11,10 @@
       <el-input v-model="form.username" />
     </el-form-item>
     <el-form-item prop="password">
-         <el-icon class="svg">
+         <el-icon class="svg" @click="changeType">
              <key />
          </el-icon>
-      <el-input v-model="form.password" />
+      <el-input v-model="form.password" :type="passwordType" />
     </el-form-item>
        <el-button type="primary" round="boolean" class="login" @click="handLogin">登录</el-button>
     </el-form>
@@ -26,9 +26,10 @@ import { reactive,ref } from 'vue';
 import {login} from '@/api/login'
 import {Avatar} from '@element-plus/icons-vue'
 import{Key}from '@element-plus/icons-vue'
+
 const form=ref({
-    username:'',
-    password:''
+    username:'admin',
+    password:'123456'
 })
 const rules=ref({
     username:[
@@ -45,15 +46,25 @@ const handLogin=()=>{
      
   formRef.value.validate(async(valid) => {
     if (valid) {
-      alert('submit!');
-      await login(form.value)
+      // alert('submit!');
+      const res=await login(form.value);
+        console.log(res);
     } else {
       console.log('error submit!');
       return false
     }
   })
 }
-   
+   const passwordType=ref('password')
+   const changeType=()=>{
+     if(passwordType.value==='password')
+     {
+       passwordType.value='text'
+     }
+     else{
+       passwordType.value='password'
+     }
+   }
 
 </script>
 
