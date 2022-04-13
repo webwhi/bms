@@ -4,5 +4,6 @@ import router from './router'
 import store from './store'
 import '@/styles/index.scss'
 import 'element-plus/dist/index.css'
+import '@/router/premission'
 
 createApp(App).use(store).use(router).mount('#app')
