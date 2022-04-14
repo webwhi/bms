@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
-
+import { diffTimeToken } from '@/utils/auth'
 import store from '@/store'
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
