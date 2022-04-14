@@ -30,8 +30,8 @@ import {Avatar} from '@element-plus/icons-vue'
 import{Key}from '@element-plus/icons-vue'
 const store=useStore()
 const form=ref({
-    username:'admin',
-    password:'123456'
+    username:'',
+    password:''
 })
 const rules=ref({
     username:[
